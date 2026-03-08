@@ -12,6 +12,7 @@ ENV/
 *.egg-info/
 .eggs/
 pip-wheel-metadata/
+gameglitch/
 
 # Environment and config
 .env
