@@ -42,6 +42,9 @@ Using pytest, I ran a test "test_too_high_message_says_go_lower" which basically
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
 
+The value stored in session state for the secret never really changed, it was because on every other attempt the secret variable was converted to a string, then check_guess had conflicting types (since its a string and not an int). This meant that it would default to alphabetical string comparison instead of numerical comparison which isn't the logic we wanted and it felt like the secret number kept changing. 
+If we were to think of streamlit apps as a single python script that runs from top to bottom everytime something happens, then we can see a streamlit rerun as the script starting over from the beginning everytime there's a change/action. Session state is basically like a temporary persistent memory so streamlit knows whats going on even if its rerunning so often, so if you buy something, you want that purchase to be tracked regardless of you doing anything else on the website.
+For getting a stable secret number, we changed the alternating conversions with just single type of int, so we're always comparing ints and the logic works as intended.  
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -50,3 +53,5 @@ Using pytest, I ran a test "test_too_high_message_says_go_lower" which basically
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+I liked having AI be a helper but still understanding what was going on and having control. I'd ask AI to explain, review the code diffs, and add personal comments which I think will all be useful habits for future labs and projects. One thing I'll do different is try to be more specific to avoid unwanted side-effects like I've seen for this project, which required further prompting. AI generated code can be helpful but its still important to know what's going on because sometimes you'll end up knowing or observing things that AI might not know or miss, especially when the codebase gets very large and there are external factors at play. This project only adds to that mindset because even with simple fixes and a small codebase, it won't always do as intended and you need to be there to ensure it does. 
