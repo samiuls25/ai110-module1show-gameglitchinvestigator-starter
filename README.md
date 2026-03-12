@@ -107,6 +107,7 @@ The test covers:
 ## 📸 Demo
 
 - [ ] [Insert a screenshot of your fixed, winning game here]
+<img width="1440" height="852" alt="Screenshot 2026-03-11 at 10 33 13 PM" src="https://github.com/user-attachments/assets/db2f0d66-e271-4031-b224-a0a37a9cc536" />
 
 ## 🚀 Stretch Features
 
